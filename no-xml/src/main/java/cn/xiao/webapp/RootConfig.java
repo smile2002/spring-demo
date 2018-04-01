@@ -33,7 +33,6 @@ public class RootConfig {
 
     /**
      * C3P0数据源
-     * 每次 getConnection() 都创建新的链接
      */
     @Bean
     public ComboPooledDataSource dataSource() throws PropertyVetoException {
