@@ -1,0 +1,10 @@
+<h3> JdbcTemplate 读取数据 </h3>
+
+<table>
+
+    #foreach($user in $!{Users})
+        <tr><td> $!user.userId</td>
+            <td> $!user.name</td></tr>
+    #end
+
+</table>

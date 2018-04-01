@@ -1,0 +1,4 @@
+
+
+<h3>Properties.load() 方式读取配置文件</h3>
+<b>$!{prop1}</b>

@@ -1,0 +1,11 @@
+
+<h3>@PropertyResource 注解方式读取配置文件</h3>
+
+<table>
+
+#foreach($item in $!{prop2.entrySet()})
+<tr><td> $!item.key</td>
+    <td> $!item.value</td></tr>
+#end
+
+</table>
