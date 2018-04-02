@@ -19,8 +19,10 @@ public class MyWebAppInitializer extends AbstractAnnotationConfigDispatcherServl
     }
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class<?>[] { RootConfig.class };
-
+        return new Class<?>[] {
+                RootConfig.class,
+                PersistConfig.class
+        };
     }
     @Override
     protected Class<?>[] getServletConfigClasses() {
@@ -39,16 +41,6 @@ public class MyWebAppInitializer extends AbstractAnnotationConfigDispatcherServl
         /** ==== 添加其他 Listener ==== **/
         /*
         servletContext.addListener(new SomeOtherListener(rootContext));
-        */
-
-        /** ==== 添加其他 Servlet ==== **/
-        /*
-        AnnotationConfigWebApplicationContext appContext = new AnnotationConfigWebApplicationContext();
-        webContext.register(appConfig.class);
-        ServletRegistration.Dynamic appServlet =
-                servletContext.addServlet("servletName", new AppServlet(appContext));
-        appServlet.setLoadOnStartup(1);
-        appServlet.addMapping("/app");
         */
 
         /** ==== 添加其他 Filters ==== **/

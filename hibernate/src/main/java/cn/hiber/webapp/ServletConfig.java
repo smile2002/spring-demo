@@ -29,12 +29,6 @@ public class ServletConfig extends WebMvcConfigurationSupport {
     @Autowired
     Environment env;
 
-    /** 用途：启用 @PropertyResource 注解 */
-    @Bean
-    public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
-        return new PropertySourcesPlaceholderConfigurer();
-    }
-
     @Bean
     public VelocityConfigurer velocityConfigurer() {
         VelocityConfigurer velocityConfigurer = new VelocityConfigurer();
@@ -65,10 +59,8 @@ public class ServletConfig extends WebMvcConfigurationSupport {
         return viewResolver;
     }
 
-
     @Override
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/static/**").addResourceLocations("/WEB-INF/static/");
     }
 }
-
