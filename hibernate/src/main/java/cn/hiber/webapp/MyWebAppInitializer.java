@@ -21,7 +21,8 @@ public class MyWebAppInitializer extends AbstractAnnotationConfigDispatcherServl
     protected Class<?>[] getRootConfigClasses() {
         return new Class<?>[] {
                 RootConfig.class,
-                PersistConfig.class
+                PersistConfig.class,
+                JpaConfig.class
         };
     }
     @Override

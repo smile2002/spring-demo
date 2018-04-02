@@ -18,6 +18,12 @@
             <version>3.6.9.Final</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>3.6.10.Final</version>
+        </dependency>
+
         <!-- javassist -->
         <dependency>
             <groupId>javassist</groupId>

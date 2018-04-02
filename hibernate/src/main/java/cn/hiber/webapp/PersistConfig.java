@@ -7,6 +7,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.orm.hibernate3.HibernateTransactionManager;
 import org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean;
+import org.springframework.orm.jpa.JpaVendorAdapter;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.LocalEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.Database;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
@@ -54,7 +59,7 @@ public class PersistConfig {
         Properties props = new Properties();
         props.setProperty("dialecct", "org.hibernate.dialect.MySQLDialect");
         props.setProperty("hibernate.show_sql", "true");
-        props.setProperty("hibernate.format_sql", "true");
+        props.setProperty("hibernate.format_sql", "false");
         props.setProperty("hibernate.cache.use_second_level_cache", "false");
         props.setProperty("hibernate.cache.provider_class", "org.hibernate.cache.EhCacheProvider");
         //props.setProperty("hibernate.current_session_context_class", "thread");
@@ -87,4 +92,5 @@ public class PersistConfig {
         dataSourceTransactionManager.setDataSource(dataSource);
         return dataSourceTransactionManager;
     }*/
+
 }
