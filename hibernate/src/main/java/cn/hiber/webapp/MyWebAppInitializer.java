@@ -1,8 +1,10 @@
 package cn.hiber.webapp;
 
+import org.springframework.orm.hibernate3.support.OpenSessionInViewFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import javax.servlet.Filter;
+import javax.servlet.FilterRegistration;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 
@@ -50,8 +52,7 @@ public class MyWebAppInitializer extends AbstractAnnotationConfigDispatcherServl
         */
 
         /** ==== 添加其他 Filters ==== **/
-        /*
-        FilterRegistration.Dynamic xxxFilter = servletContext.addFilter(...
-        */
+//        FilterRegistration.Dynamic openSessionFilter = servletContext.addFilter("openSessionInViewFilter", new OpenSessionInViewFilter());
+//        openSessionFilter.addMappingForUrlPatterns(null, true, "/*");
     }
 }

@@ -8,6 +8,7 @@
   <modules>
     <module>no-xml</module>
     <module>hibernate</module>
+      <module>hibernate-xml</module>
   </modules>
   <packaging>pom</packaging>
 

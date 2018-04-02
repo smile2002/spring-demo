@@ -1,5 +1,6 @@
 package cn.hiber.webapp;
 
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -8,22 +9,22 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.env.Environment;
+import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.orm.hibernate3.HibernateTransactionManager;
+import org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.springframework.web.servlet.view.velocity.VelocityConfigurer;
 import org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver;
 
+import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("cn.xiao.controller")
-@PropertySource("classpath:my.properties")
+@ComponentScan("cn.hiber.controller")
 public class ServletConfig extends WebMvcConfigurationSupport {
-
-    @Value("${keyroot}")
-    public String prop;
 
     @Autowired
     Environment env;
@@ -63,6 +64,7 @@ public class ServletConfig extends WebMvcConfigurationSupport {
         viewResolver.setLayoutUrl("layout/default.vm");
         return viewResolver;
     }
+
 
     @Override
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {

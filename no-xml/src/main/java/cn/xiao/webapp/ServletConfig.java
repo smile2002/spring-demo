@@ -64,6 +64,9 @@ public class ServletConfig extends WebMvcConfigurationSupport {
         return viewResolver;
     }
 
+    /**
+     * Resource Mapping
+     */
     @Override
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/static/**").addResourceLocations("/WEB-INF/static/");

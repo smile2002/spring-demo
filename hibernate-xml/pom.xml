@@ -6,11 +6,12 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>hibernate</artifactId>
+    <artifactId>hibernate-xml</artifactId>
     <packaging>war</packaging>
-    <name>hibernate Maven Webapp</name>
+    <name>hibernate-xml Maven Webapp</name>
     <url>http://maven.apache.org</url>
     <dependencies>
+
 
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -25,7 +26,7 @@
             <version>3.12.1.GA</version>
         </dependency>
 
-        <!-- junit -->
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -34,6 +35,6 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>hibernate</finalName>
+        <finalName>hibernate-xml</finalName>
     </build>
 </project>
