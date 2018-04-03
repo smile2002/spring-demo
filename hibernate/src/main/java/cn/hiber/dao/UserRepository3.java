@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
  * Spring Data JPA Repository
  *    声明式持久化操作
  *    需要JDK1.8+
+ *    spring-data-jpa 2.0 需要 Spring5，否则有兼容性问题
  * Spring Data 提供的 Repository 接口类型：
  *   1. CrudRepository              (extends Repository)
  *   2. PagingAndSortingRepository  (extends Crud)
