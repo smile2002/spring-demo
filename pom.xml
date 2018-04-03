@@ -9,6 +9,13 @@
     <module>no-xml</module>
     <module>hibernate</module>
       <module>hibernate-xml</module>
+    <module>hibernate</module>
+    <module>hibernate</module>
+      <module>hibernate</module>
+    <module>hibernate</module>
+    <module>hibernate</module>
+      <module>hibernate</module>
+    <module>spring-data</module>
   </modules>
   <packaging>pom</packaging>
 
