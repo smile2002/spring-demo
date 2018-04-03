@@ -1,8 +1,7 @@
-package cn.hiber.dao;
+package cn.data.dao;
 
-import cn.hiber.domain.User;
+import cn.data.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
 /**
  * Spring Data JPA Repository
@@ -18,6 +17,6 @@ import org.springframework.stereotype.Repository;
  * 由配置类的 @EnableJpaRepositories(basePackages=...)
  * 启用自动扫描，不需要添加注解
  */
-public interface UserRepository3 extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
     User getUserById(int id);
 }

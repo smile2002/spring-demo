@@ -1,7 +1,7 @@
-package cn.hiber.controller;
+package cn.hiber2.controller;
 
-import cn.hiber.dao.UserRepository3;
-import cn.hiber.domain.User;
+import cn.hiber2.dao.UserRepository;
+import cn.hiber2.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Created by Smile on 2018/4/3.
  */
 @Controller
-public class Jpa3Controller {
-    @Autowired
-    UserRepository3 userRepository;
+public class SDJController {
 
-    @RequestMapping("/jpa3")
-    public String jpa2(Model model) {
+    @Autowired
+    UserRepository userRepository;
+
+    @RequestMapping("/sdj")
+    public String sdj(Model model) {
         User user  = userRepository.getUserById(168);
-        model.addAttribute("msg", "Spring Data Jpa");
         model.addAttribute("user", user);
         return "pages/demo1";
     }

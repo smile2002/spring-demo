@@ -27,7 +27,7 @@ public class JpaRepoConfig1 {
         return adapter;
     }
     @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory(
             DataSource dataSource, JpaVendorAdapter jpaVendorAdapter) {
         LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
         emf.setDataSource(dataSource);
