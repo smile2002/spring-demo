@@ -8,13 +8,13 @@
   <modules>
     <module>no-xml</module>
     <module>hibernate</module>
-      <module>hibernate-xml</module>
+    <module>hibernate-xml</module>
     <module>hibernate</module>
     <module>hibernate</module>
-      <module>hibernate</module>
     <module>hibernate</module>
     <module>hibernate</module>
-      <module>hibernate</module>
+    <module>hibernate</module>
+    <module>hibernate</module>
     <module>spring-data</module>
     <module>mybatis</module>
   </modules>

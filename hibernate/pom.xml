@@ -25,7 +25,7 @@
         </dependency>
 
         <!-- spring-data-jpa -->
-        <!-- spring-data-jpa 2.0 需要依赖 Spring 5 ->
+        <!-- spring-data-jpa 2.0 需要依赖 Spring 5 -->
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-jpa</artifactId>
