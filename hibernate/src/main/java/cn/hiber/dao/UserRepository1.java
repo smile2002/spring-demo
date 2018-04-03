@@ -8,10 +8,11 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
 
 /**
- * Created by Smile on 2018/4/2.
+ * 不推荐这种模式，样板代码多
+ * EntityManager 线程不安全，每次创建新的 EntityManager 实例
  */
 @Repository
-public class JpaUserRepository {
+public class UserRepository1 {
     @PersistenceUnit
     private EntityManagerFactory emf;
 

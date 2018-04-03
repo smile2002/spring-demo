@@ -1,6 +1,7 @@
 package cn.hiber.webapp;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.Database;
@@ -11,7 +12,8 @@ import javax.sql.DataSource;
 /**
  * Created by Smile on 2018/4/2.
  */
-public class JpaConfig {
+@Configuration
+public class JpaRepoConfig1 {
     /**
      * Below: Jpa Beans
      */
