@@ -22,9 +22,6 @@ import java.util.Properties;
 @ComponentScan("cn.mb.controller")
 public class ServletConfig extends WebMvcConfigurationSupport {
 
-    @Autowired
-    Environment env;
-
     @Bean
     public VelocityConfigurer velocityConfigurer() {
         VelocityConfigurer velocityConfigurer = new VelocityConfigurer();

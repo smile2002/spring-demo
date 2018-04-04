@@ -1,27 +1,21 @@
 package cn.mb.webapp;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
-import org.apache.ibatis.io.Resources;
+import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
-import org.springframework.orm.hibernate3.HibernateTemplate;
-import org.springframework.orm.hibernate3.HibernateTransactionManager;
-import org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 import java.beans.PropertyVetoException;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.URI;
-import java.net.URL;
-import java.util.Properties;
 
 /**
  * Created by Smile on 2018/4/3.
@@ -52,11 +46,11 @@ public class PersistConfig {
     }
 
     @Bean
-    public SqlSessionFactoryBean sessionFactory(DataSource dataSource) {
+    public SqlSessionFactoryBean sessionFactory(DataSource dataSource) throws IOException {
         SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(dataSource);
-        sessionFactory.setMapperLocations(new Resource[] {
-                new ClassPathResource("mapping/user.xml") });
+        ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+        sessionFactory.setMapperLocations(resolver.getResources("classpath*:mapper/*Mapper.xml"));
         return sessionFactory;
     }
 
