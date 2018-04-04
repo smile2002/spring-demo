@@ -45,6 +45,20 @@ public class PersistConfig {
         return ds;
     }
 
+    /**
+     * transactionManager
+     */
+    @Bean
+    public DataSourceTransactionManager transactionManager(DataSource dataSource) {
+        DataSourceTransactionManager transactionManager = new DataSourceTransactionManager(dataSource);
+        return transactionManager;
+    }
+
+    /**
+     * Mybatis Session Factory
+     * 依赖：dataSource
+     * 扫描：mapper xml 文件
+     */
     @Bean
     public SqlSessionFactoryBean sessionFactory(DataSource dataSource) throws IOException {
         SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
@@ -54,21 +68,16 @@ public class PersistConfig {
         return sessionFactory;
     }
 
+    /**
+     * Mapper Scanner
+     * 依赖：sesionFactory
+     * 扫描：dao 接口定义
+     */
     @Bean
     public MapperScannerConfigurer mapperScannerConfigurer() {
         MapperScannerConfigurer configurer = new MapperScannerConfigurer();
         configurer.setBasePackage("cn.mb.dao");
         configurer.setSqlSessionFactoryBeanName("sessionFactory");
         return configurer;
-    }
-
-
-    /**
-     * transactionManager
-     */
-    @Bean
-    public DataSourceTransactionManager transactionManager(DataSource dataSource) {
-        DataSourceTransactionManager transactionManager = new DataSourceTransactionManager(dataSource);
-        return transactionManager;
     }
 }
