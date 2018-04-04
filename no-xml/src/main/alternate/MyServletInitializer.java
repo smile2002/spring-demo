@@ -11,9 +11,8 @@ import javax.servlet.ServletRegistration;
 import java.util.Enumeration;
 
 /**
- * Created by Smile on 2018/4/1.
+ * 偏底层，需要手动设置 DispatcherServlet、ContextLoadListener 等
  */
-
 public class MyServletInitializer implements WebApplicationInitializer {
 
     public void onStartup(ServletContext servletContext) throws ServletException {
