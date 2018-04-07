@@ -1,9 +1,12 @@
 package cn.hiber.service;
 
 import cn.hiber.domain.User;
-import org.hibernate.classic.Session;
+import org.hibernate.Session;
+/** For Hibernate3:
+ * import org.hibernate.classic.Session;
+ */
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

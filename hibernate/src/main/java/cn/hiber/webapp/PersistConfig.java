@@ -6,12 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
-import org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean;
-import org.springframework.orm.jpa.JpaVendorAdapter;
-import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
-import org.springframework.orm.jpa.LocalEntityManagerFactoryBean;
-import org.springframework.orm.jpa.vendor.Database;
-import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
@@ -50,9 +45,11 @@ public class PersistConfig {
     /**
      * Hibernate Session Factory Bean
      * 须放在root上下文中，否则其他组件（如 OpenSessionInViewFilter）找不到该 Bean
+     * Hibernate4 中 LocalSessionFactoryBean 合并了 Hibernate3 Local 与 Annotation 的功能
      */
     @Bean(name="sessionFactory")
-    public AnnotationSessionFactoryBean sessionFactory(DataSource dataSource) {
+    /** for Hibernate 3 */
+    /*public AnnotationSessionFactoryBean sessionFactory(DataSource dataSource) {
         AnnotationSessionFactoryBean sessionFactory = new AnnotationSessionFactoryBean();
         sessionFactory.setDataSource(dataSource);
         sessionFactory.setPackagesToScan(new String[] { "cn.hiber.domain" });
@@ -62,6 +59,21 @@ public class PersistConfig {
         props.setProperty("hibernate.format_sql", "false");
         props.setProperty("hibernate.cache.use_second_level_cache", "false");
         props.setProperty("hibernate.cache.provider_class", "org.hibernate.cache.EhCacheProvider");
+        //props.setProperty("hibernate.current_session_context_class", "thread");
+        sessionFactory.setHibernateProperties(props);
+        return sessionFactory;
+    }*/
+    /** for Hibernate 4 */
+    public LocalSessionFactoryBean sessionFactory(DataSource dataSource) {
+        LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
+        sessionFactory.setDataSource(dataSource);
+        sessionFactory.setPackagesToScan(new String[] { "cn.hiber.domain" });
+        Properties props = new Properties();
+        props.setProperty("dialecct", "org.hibernate.dialect.MySQLDialect");
+        props.setProperty("hibernate.show_sql", "true");
+        props.setProperty("hibernate.format_sql", "false");
+        //props.setProperty("hibernate.cache.use_second_level_cache", "false");
+        //props.setProperty("hibernate.cache.provider_class", "org.hibernate.cache.EhCacheProvider");
         //props.setProperty("hibernate.current_session_context_class", "thread");
         sessionFactory.setHibernateProperties(props);
         return sessionFactory;
