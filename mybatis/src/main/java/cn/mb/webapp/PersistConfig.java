@@ -3,6 +3,7 @@ package cn.mb.webapp;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
 import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.annotation.MapperScan;
 import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -52,32 +53,5 @@ public class PersistConfig {
     public DataSourceTransactionManager transactionManager(DataSource dataSource) {
         DataSourceTransactionManager transactionManager = new DataSourceTransactionManager(dataSource);
         return transactionManager;
-    }
-
-    /**
-     * Mybatis Session Factory
-     * 依赖：dataSource
-     * 扫描：mapper xml 文件
-     */
-    @Bean
-    public SqlSessionFactoryBean sessionFactory(DataSource dataSource) throws IOException {
-        SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
-        sessionFactory.setDataSource(dataSource);
-        ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        sessionFactory.setMapperLocations(resolver.getResources("classpath*:mapper/*Mapper.xml"));
-        return sessionFactory;
-    }
-
-    /**
-     * Mapper Scanner
-     * 依赖：sesionFactory
-     * 扫描：dao 接口定义
-     */
-    @Bean
-    public MapperScannerConfigurer mapperScannerConfigurer() {
-        MapperScannerConfigurer configurer = new MapperScannerConfigurer();
-        configurer.setBasePackage("cn.mb.dao");
-        configurer.setSqlSessionFactoryBeanName("sessionFactory");
-        return configurer;
     }
 }
