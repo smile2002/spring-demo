@@ -15,7 +15,6 @@
     <module>hibernate</module>
     <module>hibernate</module>
     <module>hibernate</module>
-    <module>spring-data</module>
     <module>mybatis</module>
       <module>mybatis-generator</module>
       <module>aop</module>
