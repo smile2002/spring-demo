@@ -6,8 +6,7 @@ package cn.xiao;
  */
 public class App 
 {
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello Annotations!" );
+    public static void main( String[] args ) {
+         FruitInfoUtil.getFruitInfo(Apple.class);
     }
 }

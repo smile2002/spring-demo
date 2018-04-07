@@ -19,6 +19,8 @@
     <module>mybatis</module>
       <module>mybatis-generator</module>
       <module>aop</module>
+      <module>annotation</module>
+    <module>annotation</module>
   </modules>
   <packaging>pom</packaging>
 
